@@ -7,13 +7,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <style>
 
-    html, body, div, h1, h2, h3, h4, h5, h6, p, fieldset, input, main, section, header, footer {
+    html, body, div, h1, h2, h3, h4, h5, h6, p, code, fieldset, input, main, section, header, footer {
         margin: 0;
         padding: 0;
         border: 0;
     }
 
-    div, h1, h2, h3, h4, h5, h6, p, fieldset, input, main, section, header, footer {
+    div, h1, h2, h3, h4, h5, h6, p, code, fieldset, input, main, section, header, footer {
         display: block;
         box-sizing: border-box;
         -moz-box-sizing: border-box;
@@ -21,9 +21,9 @@
     }
 
     body {
-        /*background: #1F3B34;*/
+        background: #EBE8E1;
         font: 300 20px/1.2 sans-serif;
-        /*color: #FFBC00;*/
+        color: #5C22FF;
     }
 
     h1, h2, h3, h4, h5, h6 { font-weight: 300; }
@@ -33,7 +33,7 @@
     a, input, button { outline: 0; }
 
     a {
-        /*color: #FFBC00;*/
+        color: #5C22FF;
         font-weight: 500;
         text-decoration: underline;
     }
@@ -41,44 +41,117 @@
     a:hover,
     a:active,
     a:focus {
-        /*color: #FFBC00;*/
+        color: #5C22FF;
         text-decoration: none;
 
     }
 
+    code {
+        background: #DEDCD5;
+        padding: 2px;
+        display: inline;
+        border-radius: 5px;
+        color: #4B4A4E;
+    }
+
+    code.block {
+        display: block;
+        margin: 10px 0;
+        padding: 20px;
+    }
+
     .btn {
         padding: 10px 20px;
-        border: 2px solid #FFBC00;
+        border: 2px solid #5C22FF;
         background: none;
         text-decoration: none;
         font-weight: 300;
         display: inline-block;
         vertical-align: middle;
+        border-radius: 5px;
     }
 
     .btn:hover,
     .btn:active,
     .btn:focus {
-        background: #FFBC00;
-        color: #1F3B34;
+        background: #5C22FF;
+        color: #EBE8E1;
     }
 
-    .box {
+    .boxed {
         max-width: 900px;
         margin: 0 auto;
     }
 
-    .ft1 { padding: 0 10px 50px; }
+    .header { padding: 150px 0; }
 
-    .ft1 .social { font-size: 15px; }
+    .header p { padding-top: 50px; }
 
-    .tc { text-align: center; }
+    .main h3 { margin: 50px 0 10px; }
+
+    .script .const { color: cyan; }
+    .script .bool { color: magenta; }
+    .script .func { color: limegreen; }
+    .script .arg { color: coral; }
+    .script .com { color: #9E9EA0; }
+
 
     </style>
 </head>
 <body>
-    <header><a href="https://github.com/niandco/pure-range">Pure Range</a></header>
-    <main></main>
-    <footer></footer>
+    <header class="header boxed">
+        <h2><strong>Range.js</strong> is a lightweight pure JavaScript plugin that turns a basic HTML text input into a beautiful slider in no time.</h2>
+        <p>
+            <a class="btn" href="https://github.com/niandco/range">Fork</a>&nbsp;
+            <a class="btn" href="https://github.com/niandco/range/archive/master.zip">Download</a>
+        </p>
+    </header>
+    <main class="main boxed">
+        <h3>Features</h3>
+        <ul>
+            <li>Straightforward implementation with simple options;</li>
+            <li>Running as many slider as needed;</li>
+            <li>Easily customisable;</li>
+            <li>Fully responsive;</li>
+            <li>No dependency.</li>
+        </ul>
+        <h3>Installation</h3>
+        <p>Include the latest Range.js script in the <code>&lt;head></code> or before your closing <code>&lt;body></code> tag, of your page.</p>
+        <code class="block">&lt;script src="range.min.js">&lt;/script></code>
+        <h3>Usage</h3>
+        <p>Add a simple HTML text input in your page and set the attributes (min, max and step).</p>
+        <code class="block">&lt;input type="text" id="myRange" min="0" max="20" step="1" /></code>
+
+        <p>Initialize your slider in your script file or an inline script tag after the <code>range.min.js</code> script.</p>
+        <code class="block">
+            const source = document.getElementById( 'myRange' );<br>
+            const myRange = rangejs( source );
+        </code>
+
+        <h3>Options</h3>
+        <code class="block script">
+            <span class="const">const</span> options = {<br><br>
+            &nbsp;&nbsp;css: <span class="bool">false</span>, <span class="com">//(Boolean) Default style. True to add default style.</span><br><br>
+            &nbsp;&nbsp;buttons: <span class="bool">false</span>, <span class="com">//(Boolean) Increase/ Decrease buttons. True to enable.</span><br><br>
+            &nbsp;&nbsp;onstart: <span class="func">function</span>( <span class="arg">event</span>, <span class="arg">ui</span>, <span class="arg">data</span> ){}, <span class="com">//(Function) Fired when the dragging is triggered.</span><br><br>
+            &nbsp;&nbsp;onchange: <span class="func">function</span>( <span class="arg">event</span>, <span class="arg">ui</span>, <span class="arg">data</span> ){}, <span class="com">//(Function) Fired any time the value changes.</span><br><br>
+            &nbsp;&nbsp;onstop: <span class="func">function</span>( <span class="arg">event</span>, <span class="arg">ui</span> ){}, <span class="com">//(Function) Fired when the dragging is stopped.</span><br><br>
+            &nbsp;&nbsp;onincrease: <span class="func">function</span>( <span class="arg">event</span>, <span class="arg">ui</span>, <span class="arg">data</span> ){}, <span class="com">//(Function) Fired any time the increase button is clicked.</span><br><br>
+            &nbsp;&nbsp;ondecrease: <span class="func">function</span>( <span class="arg">event</span>, <span class="arg">ui</span>, <span class="arg">data</span> ){} <span class="com">//(Function) Fired any time the decrease button is clicked.</span><br><br>
+            };
+        </code>
+
+        <h3>Examples</h3>
+        <input type="text" id="test1" value="20" max="100" min="0" step="1" />
+
+
+
+
+    </main>
+    <footer class="boxed"></footer>
+    <script src="src/range.js"></script>
+    <script>
+        rangejs( document.getElementById( 'test1' ), {css:true} );
+    </script>
 </body>
 </html>
