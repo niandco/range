@@ -181,8 +181,12 @@
  		}
 
  		function style(){
- 			var output = '.rangeJs{display:block;height:10px;width:300px;position:relative;}';
- 			output += '.rangeJs .dragger{position:absolute;top:0;left:0;width:10px;height:10px;background:blue;border-radius:10px;padding:0;margin:0;border:0;cursor:pointer;}';
+ 			var output = '.rangeJs{display:inline-block;height:10px;width:300px;position:relative;}';
+ 			output += '.rangeJs:before{position:absolute;height:3px;width:100%;top:50%;background:#9C9B94;left:0;margin-top:-1px;content:"";}';
+ 			output += '.rangeJs .dragger{position:absolute;top:0;left:0;width:10px;height:10px;background:#5C22FF;border-radius:10px;padding:0;margin:0;border:0;cursor:pointer;}';
+ 			output += '.rjsButton{padding:0;line-height:20px;border:0;background:#DEDCD3;border-radius:20px;width:20px;height:20px;text-align:center;margin-right:10px;cursor:pointer;font:500 15px/20px sans-serif;}';
+ 			output += '.rjsButton.increase{margin-right:0;margin-left:10px;}';
+ 			output += '.rjsButton:hover{background:#5C22FF;color:#DEDCD3;}';
 
  			return output;
  		}
