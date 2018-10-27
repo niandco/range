@@ -3,7 +3,7 @@
  *
  * @version: 0.0.2
  * @author: niandco <https://github.com/niandco>
- * @license: GPLv3
+ * @license: MIT
  *
  */
 
