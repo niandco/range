@@ -115,6 +115,7 @@
 
  	win[_name] = function( source, options ){
  		var dragging = false;
+ 		var x;
 
  		if( !source ){
  			return;
@@ -358,10 +359,10 @@
  				return;
 
  			}
- 			range = document.createElement( 'div' );
+ 			range = doc.createElement( 'div' );
  			range.className = 'rangeJs';
 
- 			dragger = document.createElement( 'button' );
+ 			dragger = doc.createElement( 'button' );
  			dragger.className = 'dragger';
  			range.appendChild( dragger );
 
@@ -370,11 +371,11 @@
  			data.dragger = dragger;
 
  			if( options.buttons ){
- 				dec = document.createElement( 'button' );
+ 				dec = doc.createElement( 'button' );
  				dec.className = 'decrease rjsButton';
  				dec.innerHTML = '-';
 
- 				inc = document.createElement( 'button' );
+ 				inc = doc.createElement( 'button' );
  				inc.className = 'increase rjsButton';
  				inc.innerHTML = '+';
 
@@ -420,7 +421,7 @@
  			return;
 
  		}
- 		node( document.documentElement ).event( 'mouseup', onstop );
+ 		node( doc.documentElement ).event( 'mouseup', onstop );
 
  	};
 
